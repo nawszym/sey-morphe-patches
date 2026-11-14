@@ -10,6 +10,7 @@ for every version newer than the installed bundle.
 
 * **KICK: Live Streaming - HIDE PINNED:** Added a SEYTTINGS toggle that removes the pinned message card and the ad banner attached to it from the top of the chat.
 * **KICK: Live Streaming - SKIP 18+ WARNING:** Added a SEYTTINGS toggle that auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click.
+* **KICK: Live Streaming - STOP ON MINIMIZE:** Added a SEYTTINGS toggle that stops playback (audio/video) when the app is minimized or exited, so nothing keeps playing in the background. Open a stream again to resume.
 * **Twitch - SKIP 18+ WARNING:** Added a SEYTTINGS toggle that auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click.
 * **Twitch - HIDE PINNED:** Added a SEYTTINGS toggle that hides the pinned message card above the chat, its "Pinned by" label, the pin badge and any pinned highlight in the message list.
 

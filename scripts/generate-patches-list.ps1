@@ -135,6 +135,18 @@ $patches = @(
         options            = @()
     },
     [ordered]@{
+        name               = 'STOP ON MINIMIZE'
+        description        = 'Stops playback (audio/video) when the app is ' +
+                             'minimized or exited, so nothing keeps playing in ' +
+                             'the background. Open a stream again to resume ' +
+                             'playback. Toggle it in SEYTTINGS. Requires the ' +
+                             'SEYTTINGS patch.'
+        default            = $true
+        category           = $null
+        compatiblePackages = @($kickTv)
+        options            = @()
+    },
+    [ordered]@{
         name               = 'SEYTTINGS'
         description        = 'Adds the red themed SEYTTINGS menu to KICK TV. ' +
                              'This is the base patch required by every KICK TV tweak.'

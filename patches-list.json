@@ -207,6 +207,40 @@
                                     ]
                     },
                     {
+                        "name":  "STOP ON MINIMIZE",
+                        "description":  "Stops playback (audio/video) when the app is minimized or exited, so nothing keeps playing in the background. Open a stream again to resume playback. Toggle it in SEYTTINGS. Requires the SEYTTINGS patch.",
+                        "default":  true,
+                        "category":  null,
+                        "compatiblePackages":  [
+                                                   {
+                                                       "packageName":  "com.kick.mobile",
+                                                       "name":  "KICK: Live Streaming",
+                                                       "description":  "Patched tweaks by Sey for KICK (Android TV).",
+                                                       "apkFileType":  "APKM",
+                                                       "appIconColor":  "#53FC18",
+                                                       "signatures":  null,
+                                                       "formFactor":  "TV",
+                                                       "targets":  [
+                                                                       {
+                                                                           "version":  "1.9.0",
+                                                                           "versionCodes":  {
+                                                                                                "ARM64_V8A":  208,
+                                                                                                "ARMEABI_V7A":  208,
+                                                                                                "X86_64":  208,
+                                                                                                "X86":  208
+                                                                                            },
+                                                                           "isExperimental":  false,
+                                                                           "minSdk":  null,
+                                                                           "description":  null
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ],
+                        "options":  [
+
+                                    ]
+                    },
+                    {
                         "name":  "SEYTTINGS",
                         "description":  "Adds the red themed SEYTTINGS menu to KICK TV. This is the base patch required by every KICK TV tweak.",
                         "default":  true,

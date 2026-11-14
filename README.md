@@ -28,6 +28,7 @@ for the feature patches of both apps.
 | **EXPAND CHAT** | feature | Hides the **Join the Chat** footer in the VIDEO/CHAT view and lets the chat fill the freed space. Toggle in SEYTTINGS. |
 | **HIDE PINNED** | feature | Removes the pinned message card (and the ad banner attached to it) from the top of the chat. Toggle in SEYTTINGS. |
 | **SKIP 18+ WARNING** | feature | Auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click. Toggle in SEYTTINGS. |
+| **STOP ON MINIMIZE** | feature | Stops playback (audio/video) when the app is minimized or exited, so nothing keeps playing in the background. Open a stream again to resume. Toggle in SEYTTINGS. |
 
 ### Twitch (Android TV)
 
@@ -99,7 +100,7 @@ A Morphe bundle can carry patches for several packages. This repository keeps:
 - one `patches-list.json` with a `compatiblePackages` entry per app.
 
 Morphe Manager groups the entries by package, so after selecting a KICK APK you
-see the seven KICK patches, and after selecting a Twitch APK you see the seven
+see the eight KICK patches, and after selecting a Twitch APK you see the seven
 Twitch patches. Dependency resolution keeps **SEYTTINGS** selected whenever a
 feature patch needs it.
 
@@ -280,6 +281,7 @@ patches/src/main/kotlin/app/morphe/patches/
   kicktv/chatexpand/                KICK EXPAND CHAT patch
   kicktv/hidepinned/                KICK HIDE PINNED patch
   kicktv/maturewarning/             KICK SKIP 18+ WARNING patch
+  kicktv/stoponminimize/            KICK STOP ON MINIMIZE patch
   twitch/Target.kt                  Twitch compatibility (package, version, purple tile)
   twitch/settings/                  Twitch SEYTTINGS base patch
   twitch/amoled/                    Twitch AMOLED patch
@@ -301,6 +303,7 @@ extension/src/app/morphe/extension/
   kicktv/chatexpand/                KICK footer helper
   kicktv/hidepinned/                KICK pinned card helper
   kicktv/maturewarning/             KICK mature warning helper
+  kicktv/stoponminimize/            KICK stop-on-minimize player helper
   twitch/base/                      Twitch red themed dialog, bridge and injector
   twitch/amoled/                    Twitch AMOLED injector, preference and section
   twitch/adblock/                   Twitch AD BLOCK injector, preference and section
