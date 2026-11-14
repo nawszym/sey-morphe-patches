@@ -353,22 +353,22 @@ Commands (run from the repo root):
 powershell -ExecutionPolicy Bypass -File scripts\build-patch.ps1
 
 # bundle with a custom version
-powershell -ExecutionPolicy Bypass -File scripts\build-patch.ps1 -Version 1.2.4
+powershell -ExecutionPolicy Bypass -File scripts\build-patch.ps1 -Version 1.2.5
 
 # patched APKs (also rebuild the bundle)
 powershell -ExecutionPolicy Bypass -File scripts\build-kick-apk.ps1
 powershell -ExecutionPolicy Bypass -File scripts\build-twitch-apk.ps1
 
 # regenerate metadata + staging folder
-powershell -ExecutionPolicy Bypass -File scripts\generate-patches-list.ps1 -Version 1.2.4
+powershell -ExecutionPolicy Bypass -File scripts\generate-patches-list.ps1 -Version 1.2.5
 powershell -ExecutionPolicy Bypass -File scripts\prepare-remote.ps1 `
-    -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.4
+    -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.5
 
 # publish (needs network + git credentials)
 powershell -ExecutionPolicy Bypass -File scripts\publish-remote.ps1 `
-    -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.4
+    -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.5
 powershell -ExecutionPolicy Bypass -File scripts\publish-release.ps1 `
-    -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.4
+    -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.5
 ```
 
 APK builders sign with `build/kick-morphe.keystore` /
@@ -390,7 +390,7 @@ must be uninstalled first.
 
 ### Version bump checklist (six scripts + five tracked artefacts)
 
-The version `1.2.4` is hard-coded as a default in **six** scripts:
+The version `1.2.5` is hard-coded as a default in **six** scripts:
 
 - `scripts/build-patch.ps1`
 - `scripts/build-kick-apk.ps1`
@@ -403,7 +403,7 @@ The version `1.2.4` is hard-coded as a default in **six** scripts:
 Then update, in order:
 
 1. `CHANGELOG.md` — new `## <version> (YYYY-MM-DD)` section at the top.
-2. `README.md` — all `1.2.4`/`SeyMorphe-1.2.4.mpp` references (tables, build
+2. `README.md` — all `1.2.5`/`SeyMorphe-1.2.5.mpp` references (tables, build
    output, project layout, import instructions).
 3. Build → `dist/SeyMorphe-<version>.mpp`.
 4. **Copy the new bundle to the repo root** as `SeyMorphe-<version>.mpp` and
@@ -423,7 +423,7 @@ Then update, in order:
 
 ### Changelog format (Morphe parses this)
 
-- One heading per release, newest first: `## 1.2.4 (2026-11-11)` — date is
+- One heading per release, newest first: `## 1.2.5 (2026-11-14)` — date is
   **required**.
 - Section headings: `### ✨ New Features`, `### 🐛 Bug Fixes`,
   `### ⚡ Performance`, `### 📝 Other`.
@@ -557,5 +557,5 @@ Read these before "fixing" anything:
 
 ---
 
-*Last full scan: repository state at bundle version 1.2.4, Morphe Desktop
+*Last full scan: repository state at bundle version 1.2.5, Morphe Desktop
 2.1.1, no Git binary on the host PATH, no Android SDK on the host PATH.*

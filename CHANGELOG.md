@@ -4,6 +4,16 @@ All notable changes to the **Sey Morphe Patches** bundle are documented here.
 Morphe Manager reads this file from the repository root and shows the entries
 for every version newer than the installed bundle.
 
+## 1.2.5 (2026-11-14)
+
+### ✨ New Features
+
+* **KICK: Live Streaming - HIDE PINNED:** Added a SEYTTINGS toggle that removes the pinned message card and the ad banner attached to it from the top of the chat.
+* **KICK: Live Streaming - SKIP 18+ WARNING:** Added a SEYTTINGS toggle that auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click.
+* **Twitch - SKIP 18+ WARNING:** Added a SEYTTINGS toggle that auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click.
+* **Twitch - HIDE PINNED:** Added a SEYTTINGS toggle that hides the pinned message card above the chat, its "Pinned by" label, the pin badge and any pinned highlight in the message list.
+* **KICK: Live Streaming - DEFAULT HOME DESTINATION:** Added a SEYTTINGS toggle that opens the chosen tab (Home, Categories, Live, Following or Settings) automatically when KICK starts.
+
 ## 1.2.4 (2026-11-11)
 
 ### ✨ New Features

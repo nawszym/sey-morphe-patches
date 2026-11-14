@@ -9,6 +9,7 @@
 #   extension\dex\kick-hidepinned\classes.dex   - HIDE PINNED feature module
 #   extension\dex\kick-maturewarning\classes.dex - SKIP 18+ WARNING feature module
 #   extension\dex\kick-stoponminimize\classes.dex - STOP ON MINIMIZE feature module
+#   extension\dex\kick-homedestination\classes.dex - DEFAULT HOME DESTINATION feature module
 #
 # Twitch (Android TV):
 #   extension\dex\twitch-seyttings\classes.dex  - base SEYTTINGS module
@@ -160,6 +161,7 @@ $kickChatExpandSrc = Join-Path $srcRoot 'app\morphe\extension\kicktv\chatexpand'
 $kickHidePinnedSrc = Join-Path $srcRoot 'app\morphe\extension\kicktv\hidepinned'
 $kickMatureWarningSrc = Join-Path $srcRoot 'app\morphe\extension\kicktv\maturewarning'
 $kickStopOnMinimizeSrc = Join-Path $srcRoot 'app\morphe\extension\kicktv\stoponminimize'
+$kickHomeDestinationSrc = Join-Path $srcRoot 'app\morphe\extension\kicktv\homedestination'
 
 $twitchBaseSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\base'
 $twitchEmoteSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\emotes'
@@ -246,6 +248,10 @@ Build-Module -Label 'KICK mature warning' -SourceDir $kickMatureWarningSrc `
 Build-Module -Label 'KICK stop on minimize' -SourceDir $kickStopOnMinimizeSrc `
     -ClassesDir (Join-Path $classesRoot 'kick-stoponminimize') `
     -DexDir (Join-Path $dexRoot 'kick-stoponminimize') -BaseClasses $kickBaseClasses
+
+Build-Module -Label 'KICK home destination' -SourceDir $kickHomeDestinationSrc `
+    -ClassesDir (Join-Path $classesRoot 'kick-homedestination') `
+    -DexDir (Join-Path $dexRoot 'kick-homedestination') -BaseClasses $kickBaseClasses
 
 Build-Module -Label 'Twitch emotes' -SourceDir $twitchEmoteSrc `
     -ClassesDir (Join-Path $classesRoot 'twitch-emotes') `

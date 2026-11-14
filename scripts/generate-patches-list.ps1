@@ -12,7 +12,7 @@
 # The version must match patches-bundle.json and the bundle manifest.
 [CmdletBinding()]
 param(
-    [string]$Version = '1.2.4'
+    [string]$Version = '1.2.5'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -140,6 +140,17 @@ $patches = @(
                              'minimized or exited, so nothing keeps playing in ' +
                              'the background. Open a stream again to resume ' +
                              'playback. Toggle it in SEYTTINGS. Requires the ' +
+                             'SEYTTINGS patch.'
+        default            = $true
+        category           = $null
+        compatiblePackages = @($kickTv)
+        options            = @()
+    },
+    [ordered]@{
+        name               = 'DEFAULT HOME DESTINATION'
+        description        = 'Opens the chosen tab (Home, Categories, Live, ' +
+                             'Following or Settings) automatically when KICK ' +
+                             'starts. Pick it in SEYTTINGS. Requires the ' +
                              'SEYTTINGS patch.'
         default            = $true
         category           = $null
