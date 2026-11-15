@@ -47,7 +47,7 @@ private object HomeTabOnPageFinishedFingerprint : Fingerprint(
  *
  * <p>Twitch TV is a WebView app and opens the remote Next.js UI on the same
  * tab every launch. The injected {@code twitch-hometab.js} looks for a nav
- * link matching the chosen route (Home, Following, Live or Categories) and
+ * link matching the chosen route (Home, Following, Browse or Search) and
  * clicks it, falling back to rewriting the location. The helper re-applies
  * after client-side navigation and React re-renders.</p>
  *
@@ -56,8 +56,8 @@ private object HomeTabOnPageFinishedFingerprint : Fingerprint(
 @Suppress("unused")
 val homeTabPatch = patch(
     name = "DEFAULT HOME TAB",
-    description = "Twitch TV opens the chosen tab (Home, Following, Live or " +
-        "Categories) automatically on every launch instead of the stock start " +
+    description = "Twitch TV opens the chosen tab (Home, Following, Browse or " +
+        "Search) automatically on every launch instead of the stock start " +
         "tab. Toggle it in SEYTTINGS. Requires the SEYTTINGS patch.",
     default = true,
 ) {

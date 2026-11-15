@@ -45,7 +45,7 @@ instead of replacing native Compose screens.
 | **EXPAND CHAT** | feature | Hides the **Join the conversation** footer button and lets the chat fill the full panel height. One toggle in SEYTTINGS. |
 | **HIDE PINNED** | feature | Hides the pinned message card above the chat, its **Pinned by** label, the pin badge and any pinned highlight in the message list. One toggle in SEYTTINGS, off by default. |
 | **SKIP 18+ WARNING** | feature | Auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click. One toggle in SEYTTINGS, on by default. |
-| **DEFAULT HOME TAB** | feature | Twitch TV opens the chosen tab (Home, Following, Live or Categories) automatically on every launch instead of the stock start tab. Toggle it in SEYTTINGS, off by default. |
+| **DEFAULT HOME TAB** | feature | Twitch TV opens the chosen tab (Home, Following, Browse or Search) automatically on every launch instead of the stock start tab. Toggle it in SEYTTINGS, off by default. |
 
 ### AMOLED theme on Twitch TV
 

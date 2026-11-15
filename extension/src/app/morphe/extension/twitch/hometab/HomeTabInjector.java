@@ -62,7 +62,7 @@ public final class HomeTabInjector {
 
     public static void setTab(final String tab) {
         evaluateOnCurrent(HomeTabScript.get());
-        evaluateOnCurrent("window.__seyHomeTabSetTab('" + escapeJsString(tab) + "');");
+        evaluateOnCurrent("window.__seyHomeTabSetTab(" + jsString(tab) + ");");
     }
 
     private static void evaluateOnCurrent(final String script) {
@@ -89,10 +89,44 @@ public final class HomeTabInjector {
         }
     }
 
-    private static String escapeJsString(String s) {
+    /**
+     * Quotes a value as a single JavaScript string literal, including the
+     * surrounding quotes. Callers must not add their own quotes: doing so used
+     * to emit {@code ''Home''} and break the whole injected call.
+     */
+    private static String jsString(String s) {
         if (s == null) {
             return "''";
         }
-        return "'" + s.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n").replace("\r", "\\r") + "'";
+        StringBuilder out = new StringBuilder(s.length() + 2);
+        out.append('\'');
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            switch (c) {
+                case '\\':
+                    out.append("\\\\");
+                    break;
+                case '\'':
+                    out.append("\\'");
+                    break;
+                case '\n':
+                    out.append("\\n");
+                    break;
+                case '\r':
+                    out.append("\\r");
+                    break;
+                case '\u2028':
+                    out.append("\\u2028");
+                    break;
+                case '\u2029':
+                    out.append("\\u2029");
+                    break;
+                default:
+                    out.append(c);
+                    break;
+            }
+        }
+        out.append('\'');
+        return out.toString();
     }
 }

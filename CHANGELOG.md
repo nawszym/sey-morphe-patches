@@ -8,7 +8,7 @@ for every version newer than the installed bundle.
 
 ### ✨ New Features
 
-* **Twitch - DEFAULT HOME TAB:** Added a SEYTTINGS toggle that opens the chosen tab (Home, Following, Live or Categories) automatically on every Twitch TV launch instead of the stock start tab. Requires the SEYTTINGS patch.
+* **Twitch - DEFAULT HOME TAB:** Added a SEYTTINGS toggle that opens the chosen tab (Home, Following, Browse or Search) automatically on every Twitch TV launch instead of the stock start tab. Requires the SEYTTINGS patch.
 
 ## 1.2.5 (2026-11-14)
 

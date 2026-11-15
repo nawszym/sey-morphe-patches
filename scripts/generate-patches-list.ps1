@@ -220,8 +220,8 @@ $patches = @(
     },
     [ordered]@{
         name               = 'DEFAULT HOME TAB'
-        description        = 'Twitch TV opens the chosen tab (Home, Following, Live ' +
-                             'or Categories) automatically on every launch instead of ' +
+        description        = 'Twitch TV opens the chosen tab (Home, Following, Browse ' +
+                             'or Search) automatically on every launch instead of ' +
                              'the stock start tab. Toggle it in SEYTTINGS. Requires the ' +
                              'SEYTTINGS patch.'
         default            = $true

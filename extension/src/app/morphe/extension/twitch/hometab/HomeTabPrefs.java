@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  * Persistent "default home tab" setting.
  *
  * <p>Chooses which Twitch TV tab is opened automatically when the app starts:
- * Home, Following, Live or Categories. The value survives restarts and is read
+ * Home, Following, Browse or Search. The value survives restarts and is read
  * by {@code twitch-hometab.js} on every page load.</p>
  */
 public final class HomeTabPrefs {
