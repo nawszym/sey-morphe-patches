@@ -10,7 +10,8 @@ import app.morphe.extension.kicktv.base.MorpheContext;
  *
  * <p>Chooses which KICK tab is opened automatically when the app starts:
  * Home, Categories, Live, Following or Settings. The value survives restarts
- * and is read by the patch injected into {@code MainActivity.onCreate()}.</p>
+ * and is read by {@code HomeDestinationHelper} while the splash screen resolves
+ * its first navigation route.</p>
  */
 public final class HomeDestinationPrefs {
 

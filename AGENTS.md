@@ -246,6 +246,7 @@ index 0 of `<init>`; `inject` at index 0 of the page callbacks.
 | Emote text pipeline | `Lvz3;` → `d(String)` and `a(...)`; URL builder `Lj40;` → `i(...)` with `chat_emotes_url` |
 | TextStyle | `Lvi4;` → `<clinit>` writing field `m`; sizes via `Ldh7;` → `m(I)J` |
 | Mature dialog | `Lsz6;` → `i(...)` |
+| Splash start route | `Ldn0;` → `invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;` filtered by `const-string "home"` + `Lxs5;->b(String, Function1)` (last frame of the "VideoSplashScreen" effect) |
 
 ### Smali injection rules learned from this codebase
 
