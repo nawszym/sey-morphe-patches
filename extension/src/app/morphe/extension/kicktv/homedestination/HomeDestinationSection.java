@@ -53,23 +53,15 @@ public final class HomeDestinationSection implements MorpheSection {
                 MorpheTheme.dp(activity, 8));
         container.addView(hint, MorpheTheme.matchWidth());
 
-        final Runnable updateState = new Runnable() {
-            @Override
-            public void run() {
-                destButton.setText("Open on start: "
-                        + HomeDestinationPrefs.getHomeDestination());
-            }
-        };
+        final Runnable updateState = () -> destButton.setText("Open on start: "
+                + HomeDestinationPrefs.getHomeDestination());
 
-        destButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String current = HomeDestinationPrefs.getHomeDestination();
-                int index = indexOf(current);
-                int next = (index + 1) % DESTINATIONS.length;
-                HomeDestinationPrefs.setHomeDestination(DESTINATIONS[next]);
-                updateState.run();
-            }
+        destButton.setOnClickListener(v -> {
+            String current = HomeDestinationPrefs.getHomeDestination();
+            int index = indexOf(current);
+            int next = (index + 1) % DESTINATIONS.length;
+            HomeDestinationPrefs.setHomeDestination(DESTINATIONS[next]);
+            updateState.run();
         });
 
         updateState.run();

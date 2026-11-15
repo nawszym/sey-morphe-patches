@@ -50,11 +50,6 @@ public final class StopOnMinimizeSection implements MorpheSection {
                 MorpheTheme.dp(activity, 8));
         container.addView(hint, MorpheTheme.matchWidth());
 
-        enable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StopOnMinimizePrefs.setStopOnMinimizeEnabled(enable.isChecked());
-            }
-        });
+        enable.setOnClickListener(v -> StopOnMinimizePrefs.setStopOnMinimizeEnabled(enable.isChecked()));
     }
 }

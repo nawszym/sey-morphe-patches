@@ -34,6 +34,13 @@ public final class HomeDestinationPrefs {
         return prefs;
     }
 
+    private static synchronized SharedPreferences getPrefs(Context context) {
+        if (prefs == null && context != null) {
+            prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        }
+        return prefs;
+    }
+
     /** Returns the selected destination key ("Home", "Categories", ...). */
     public static String getHomeDestination() {
         String cached = cachedDestination;
@@ -47,6 +54,19 @@ public final class HomeDestinationPrefs {
         String value = p.getString(KEY_DESTINATION, DEFAULT_DESTINATION);
         cachedDestination = value;
         return value;
+    }
+
+    /**
+     * Reads the destination using a {@link Context} directly, without relying on
+     * {@link MorpheContext}. Useful during {@code MainActivity.onCreate()} before
+     * the activity has been registered with MorpheContext.
+     */
+    public static String getHomeDestination(Context context) {
+        SharedPreferences p = getPrefs(context);
+        if (p == null) {
+            return DEFAULT_DESTINATION;
+        }
+        return p.getString(KEY_DESTINATION, DEFAULT_DESTINATION);
     }
 
     public static void setHomeDestination(String destination) {

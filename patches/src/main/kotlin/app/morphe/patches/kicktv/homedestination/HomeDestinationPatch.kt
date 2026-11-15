@@ -8,11 +8,11 @@ import app.morphe.patches.kicktv.settings.settingsPatch
 
 private const val EXTENSION_CLASS = "Lapp/morphe/extension/kicktv/homedestination/"
 
-/** MainActivity.onCreate() - app start, where the default destination is opened. */
-private object MainActivityOnCreateFingerprint : Fingerprint(
+/** MainActivity.onResume() - app becomes visible, after MorpheContext.setActivity() has run. */
+private object MainActivityOnResumeFingerprint : Fingerprint(
     definingClass = "Lcom/kick/tv/MainActivity;",
-    name = "onCreate",
-    parameters = listOf("Landroid/os/Bundle;"),
+    name = "onResume",
+    parameters = emptyList(),
     returnType = "V",
 )
 
@@ -42,10 +42,10 @@ val homeDestinationPatch = patch(
     extendWith("extensions/KickHomeDestination.mpe")
 
     execute {
-        MainActivityOnCreateFingerprint.method.addInstructions(
+        MainActivityOnResumeFingerprint.method.addInstructions(
             0,
             """
-                invoke-static {}, ${EXTENSION_CLASS}HomeDestinationHelper;->onAppOpen()V
+                invoke-static {p0}, ${EXTENSION_CLASS}HomeDestinationHelper;->onAppOpen(Landroid/app/Activity;)V
             """,
         )
     }

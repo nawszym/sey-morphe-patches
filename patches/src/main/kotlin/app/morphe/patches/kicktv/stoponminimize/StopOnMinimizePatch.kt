@@ -47,7 +47,7 @@ val stopOnMinimizePatch = patch(
             method.addInstructions(
                 0,
                 """
-                    invoke-static {p0}, ${EXTENSION_CLASS}StopOnMinimizePrefs;->isStopOnMinimizeEnabled()Z
+                    invoke-static {}, ${EXTENSION_CLASS}StopOnMinimizePrefs;->isStopOnMinimizeEnabled()Z
                     move-result v0
                     if-eqz v0, :morphe_stop_continue
                     invoke-virtual {p0}, Lcom/kick/tv/MainActivity;->m()Lh75;
