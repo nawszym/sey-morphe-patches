@@ -45,6 +45,7 @@ instead of replacing native Compose screens.
 | **EXPAND CHAT** | feature | Hides the **Join the conversation** footer button and lets the chat fill the full panel height. One toggle in SEYTTINGS. |
 | **HIDE PINNED** | feature | Hides the pinned message card above the chat, its **Pinned by** label, the pin badge and any pinned highlight in the message list. One toggle in SEYTTINGS, off by default. |
 | **SKIP 18+ WARNING** | feature | Auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click. One toggle in SEYTTINGS, on by default. |
+| **DEFAULT HOME TAB** | feature | Twitch TV opens the chosen tab (Home, Following, Live or Categories) automatically on every launch instead of the stock start tab. Toggle it in SEYTTINGS, off by default. |
 
 ### AMOLED theme on Twitch TV
 
@@ -101,7 +102,7 @@ A Morphe bundle can carry patches for several packages. This repository keeps:
 - one `patches-list.json` with a `compatiblePackages` entry per app.
 
 Morphe Manager groups the entries by package, so after selecting a KICK APK you
-see the eight KICK patches, and after selecting a Twitch APK you see the seven
+see the eight KICK patches, and after selecting a Twitch APK you see the eight
 Twitch patches. Dependency resolution keeps **SEYTTINGS** selected whenever a
 feature patch needs it.
 
@@ -142,7 +143,7 @@ fetches `CHANGELOG.md` from the repository root. The raw
 `patches-bundle.json` URL works for patching and updates, but it does not carry
 release notes.
 
-You can also import `SeyMorphe-1.2.5.mpp` manually as a local source.
+You can also import `SeyMorphe-1.2.6.mpp` manually as a local source.
 
 ## How to use
 
@@ -166,7 +167,7 @@ newest version in the file and shows every entry in between.
 
 Morphe parses the file with these rules, so keep the format:
 
-- one version heading per release, newest first: `## 1.2.5 (2026-11-14)` (the
+- one version heading per release, newest first: `## 1.2.6 (2026-11-15)` (the
   date is required),
 - section headings such as `### ✨ New Features`, `### 🐛 Bug Fixes`,
   `### ⚡ Performance` or `### 📝 Other`,
@@ -209,7 +210,7 @@ Build the extension DEX files and the combined bundle:
 powershell -ExecutionPolicy Bypass -File scripts\build-patch.ps1
 ```
 
-Output: `dist\SeyMorphe-1.2.5.mpp`.
+Output: `dist\SeyMorphe-1.2.6.mpp`.
 
 Optional APK builders use the same bundle and apply the patches to an original
 APKM:
@@ -236,9 +237,9 @@ token is read from `git credential fill` and is never printed.
 2. Build the bundle and pass the same version everywhere:
 
    ```powershell
-   powershell -ExecutionPolicy Bypass -File scripts\build-patch.ps1 -Version 1.2.5
+   powershell -ExecutionPolicy Bypass -File scripts\build-patch.ps1 -Version 1.2.6
    powershell -ExecutionPolicy Bypass -File scripts\prepare-remote.ps1 `
-       -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.5
+       -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.6
    ```
 
 3. Commit and push `CHANGELOG.md` together with `patches-bundle.json`,
@@ -248,7 +249,7 @@ token is read from `git credential fill` and is never printed.
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File scripts\publish-release.ps1 `
-       -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.5
+       -Owner seythegamer -Repo sey-morphe-patches -Version 1.2.6
    ```
 
    The script reads the `## <version> (YYYY-MM-DD)` section from `CHANGELOG.md`
@@ -292,9 +293,11 @@ patches/src/main/kotlin/app/morphe/patches/
   twitch/expandchat/                Twitch EXPAND CHAT patch
   twitch/maturewarning/             Twitch SKIP 18+ WARNING patch
   twitch/hidepinned/                Twitch HIDE PINNED patch
+  twitch/hometab/                   Twitch DEFAULT HOME TAB patch
 extension/js/
   twitch-adblock.js                 readable source of the injected HLS ad filter
   twitch-amoled.js                  readable source of the injected black theme
+  twitch-hometab.js                 readable source of the injected default tab router
   twitch-maturewarning.js           readable source of the mature warning auto-accept
   twitch-hidepinned.js              readable source of the pinned message hider
 extension/src/app/morphe/extension/
@@ -314,12 +317,13 @@ extension/src/app/morphe/extension/
   twitch/expandchat/                Twitch footer helper
   twitch/maturewarning/             Twitch mature warning injector, preference and section
   twitch/hidepinned/                Twitch pinned message hider, preference and section
+  twitch/hometab/                   Twitch default home tab router, preference and section
 scripts/                            build and release scripts
 patches-list.json                   remote patch metadata (repository root)
 patches-bundle.json                 remote bundle manifest (repository root)
 patches-bundle.png                  source icon shown by Morphe Manager
 CHANGELOG.md                        release notes read by Morphe Manager
-SeyMorphe-1.2.5.mpp                 published bundle (repository root)
+SeyMorphe-1.2.6.mpp                 published bundle (repository root)
 assets/                             README illustrations
 LICENSE                            GNU General Public License v3.0
 README.md                          this documentation

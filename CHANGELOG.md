@@ -4,6 +4,12 @@ All notable changes to the **Sey Morphe Patches** bundle are documented here.
 Morphe Manager reads this file from the repository root and shows the entries
 for every version newer than the installed bundle.
 
+## 1.2.6 (2026-11-15)
+
+### ✨ New Features
+
+* **Twitch - DEFAULT HOME TAB:** Added a SEYTTINGS toggle that opens the chosen tab (Home, Following, Live or Categories) automatically on every Twitch TV launch instead of the stock start tab. Requires the SEYTTINGS patch.
+
 ## 1.2.5 (2026-11-14)
 
 ### ✨ New Features

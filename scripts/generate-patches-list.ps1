@@ -12,7 +12,7 @@
 # The version must match patches-bundle.json and the bundle manifest.
 [CmdletBinding()]
 param(
-    [string]$Version = '1.2.5'
+    [string]$Version = '1.2.6'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -213,6 +213,17 @@ $patches = @(
                              'card, its "Pinned by" label, the pin badge and any ' +
                              'pinned highlight in the message list. One toggle in ' +
                              'SEYTTINGS. Requires the SEYTTINGS patch.'
+        default            = $true
+        category           = $null
+        compatiblePackages = @($twitchTv)
+        options            = @()
+    },
+    [ordered]@{
+        name               = 'DEFAULT HOME TAB'
+        description        = 'Twitch TV opens the chosen tab (Home, Following, Live ' +
+                             'or Categories) automatically on every launch instead of ' +
+                             'the stock start tab. Toggle it in SEYTTINGS. Requires the ' +
+                             'SEYTTINGS patch.'
         default            = $true
         category           = $null
         compatiblePackages = @($twitchTv)

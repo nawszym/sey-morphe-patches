@@ -19,6 +19,7 @@
 #   extension\dex\twitch-amoled\classes.dex     - AMOLED feature module
 #   extension\dex\twitch-maturewarning\classes.dex - SKIP 18+ WARNING feature module
 #   extension\dex\twitch-hidepinned\classes.dex - HIDE PINNED feature module
+#   extension\dex\twitch-hometab\classes.dex   - DEFAULT HOME TAB feature module
 #
 # The AD BLOCK, AMOLED, SKIP 18+ WARNING and HIDE PINNED scripts live in
 # extension\js. This script turns them into AdBlockScript.java,
@@ -170,11 +171,13 @@ $twitchAdBlockSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\adblock'
 $twitchAmoledSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\amoled'
 $twitchMatureWarningSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\maturewarning'
 $twitchHidePinnedSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\hidepinned'
+$twitchHomeTabSrc = Join-Path $srcRoot 'app\morphe\extension\twitch\hometab'
 
 $adBlockGeneratedRoot = Join-Path $generatedRoot 'adblock'
 $amoledGeneratedRoot = Join-Path $generatedRoot 'amoled'
 $matureWarningGeneratedRoot = Join-Path $generatedRoot 'maturewarning'
 $hidePinnedGeneratedRoot = Join-Path $generatedRoot 'hidepinned'
+$hometabGeneratedRoot = Join-Path $generatedRoot 'hometab'
 
 $adBlockScript = New-JsSource `
     -JsPath (Join-Path $script:RepoRoot 'extension\js\twitch-adblock.js') `
@@ -210,6 +213,15 @@ $hidePinnedScript = New-JsSource `
     -ClassName 'PinnedChatScript'
 if (-not (Test-Path $hidePinnedScript)) {
     throw "Failed to generate $hidePinnedScript."
+}
+
+$hometabScript = New-JsSource `
+    -JsPath (Join-Path $script:RepoRoot 'extension\js\twitch-hometab.js') `
+    -OutDir $hometabGeneratedRoot `
+    -Package 'app.morphe.extension.twitch.hometab' `
+    -ClassName 'HomeTabScript'
+if (-not (Test-Path $hometabScript)) {
+    throw "Failed to generate $hometabScript."
 }
 
 $kickBaseClasses = Join-Path $classesRoot 'kick-base'
@@ -276,3 +288,7 @@ Build-Module -Label 'Twitch mature warning' -SourceDir @($twitchMatureWarningSrc
 Build-Module -Label 'Twitch hide pinned' -SourceDir @($twitchHidePinnedSrc, $hidePinnedGeneratedRoot) `
     -ClassesDir (Join-Path $classesRoot 'twitch-hidepinned') `
     -DexDir (Join-Path $dexRoot 'twitch-hidepinned') -BaseClasses $twitchBaseClasses
+
+Build-Module -Label 'Twitch home tab' -SourceDir @($twitchHomeTabSrc, $hometabGeneratedRoot) `
+    -ClassesDir (Join-Path $classesRoot 'twitch-hometab') `
+    -DexDir (Join-Path $dexRoot 'twitch-hometab') -BaseClasses $twitchBaseClasses

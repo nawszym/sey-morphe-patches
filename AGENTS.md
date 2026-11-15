@@ -110,10 +110,11 @@ The `.mpp` carries both JVM classes (Desktop/CLI patcher) and a `classes.dex`
 
 ### Bundle structure
 
-- KICK: 7 entries — `SEYTTINGS`, `EMOTES`, `CHAT SIZE`, `CHAT TEXT SIZE`,
-  `EXPAND CHAT`, `HIDE PINNED`, `SKIP 18+ WARNING`.
-- Twitch: 7 entries — `SEYTTINGS`, `AMOLED`, `AD BLOCK`, `EMOTES`,
-  `EXPAND CHAT`, `HIDE PINNED`, `SKIP 18+ WARNING`.
+- KICK: 9 entries — `SEYTTINGS`, `EMOTES`, `CHAT SIZE`, `CHAT TEXT SIZE`,
+  `EXPAND CHAT`, `HIDE PINNED`, `SKIP 18+ WARNING`, `STOP ON MINIMIZE`,
+  `DEFAULT HOME DESTINATION`.
+- Twitch: 8 entries — `SEYTTINGS`, `AMOLED`, `AD BLOCK`, `EMOTES`,
+  `EXPAND CHAT`, `HIDE PINNED`, `SKIP 18+ WARNING`, `DEFAULT HOME TAB`.
 
 ### SEYTTINGS runtime model
 
