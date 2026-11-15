@@ -182,7 +182,7 @@ the feature, as in the examples.
 Add a new section at the top before publishing a version:
 
 ```markdown
-## 1.2.5 (2026-11-20)
+## 1.2.6 (2026-11-20)
 
 ### ✨ New Features
 
@@ -330,6 +330,13 @@ README.md                          this documentation
 - The KICK patches declare compatibility with **1.9.0 / versionCode 208** only.
   The Twitch patches declare **13.0.0.2 / versionCode 1100000018** only. Newer
   app versions need fresh fingerprints before they can be patched.
+- **Do not mix patch sources for the same app.** Other sources (for example
+  Lurk) also declare `com.kick.mobile` / `tv.twitch.android.app`, but they
+  target the *mobile* builds. Morphe Manager applies every ticked patch and
+  aborts the whole job when one throws, so a mobile patch such as "AMOLED
+  black" fails on the TV `1.9.0` APKM with
+  `expected exactly one MainApplication.onCreate`. Tick only the entries from
+  **Sey Morphe Patches** when patching the TV APKMs.
 - A patched app cannot be updated from the store (signature mismatch). Patch the
   newer APK and install it over the old one.
 - Runtime behaviour was verified on a real Android TV box (Android 11): KICK
