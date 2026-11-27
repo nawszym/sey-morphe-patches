@@ -78,21 +78,16 @@ private object ChatMessageListFingerprint : Fingerprint(
 )
 
 /**
- * `hp1.L(String, Lhn, Map, Lfv8, Lp73, int)` renders the chat username with
- * the very same `vi4.m` style that CHAT TEXT SIZE lightens. Redirecting its
- * style parameter to a bold copy keeps usernames bold while the message body
- * stays light in the Twitch-like preset.
+ * `hp1.I(Lhn, ...)` draws one complete chat line. The username is a SpanStyle
+ * inside that CharSequence with no explicit font weight, so the extension sets
+ * it to semi-bold before the line is drawn when Twitch-like is selected.
  */
-private object ChatUsernameFingerprint : Fingerprint(
+private object ChatTextRenderFingerprint : Fingerprint(
     definingClass = "Lhp1;",
-    name = "L",
+    name = "I",
     parameters = listOf(
-        "Ljava/lang/String;",
-        "Lhn;",
-        "Ljava/util/Map;",
-        "Lfv8;",
-        "Lp73;",
-        "I",
+        "Lhn;", "Lei5;", "Ljava/util/Map;", "J", "Lfv8;", "I",
+        "Lkotlin/jvm/functions/Function1;", "Lp73;", "I",
     ),
     returnType = "V",
 )
@@ -118,7 +113,7 @@ private object KickApplicationOnCreateFingerprint : Fingerprint(
 val chatTextPatch = patch(
     name = "CHAT TEXT SIZE",
     description = "Two options: Native (stock KICK text and spacing) or " +
-        "Twitch-like (larger 16 sp text, a wider 10 dp gap, lighter message text " +
+        "Twitch-like (larger 15 sp text, a tighter 6 dp gap, lighter message text " +
         "and bolder usernames). Toggle in SEYTTINGS. Requires the SEYTTINGS patch.",
     default = true,
 ) {
@@ -177,16 +172,10 @@ val chatTextPatch = patch(
             )
         }
 
-        // Usernames share vi4.m with the message body, so give them a bold
-        // copy of the style while the body stays light.
-        ChatUsernameFingerprint.apply {
+        ChatTextRenderFingerprint.apply {
             method.addInstructions(
                 0,
-                """
-                    invoke-static/range {p3 .. p3}, ${EXTENSION_CLASS}ChatTextPrefs;->usernameStyle(Ljava/lang/Object;)Ljava/lang/Object;
-                    move-result-object p3
-                    check-cast p3, Lfv8;
-                """,
+                "invoke-static/range {p0 .. p0}, ${EXTENSION_CLASS}ChatTextPrefs;->boldUsernames(Ljava/lang/Object;)V",
             )
         }
 
