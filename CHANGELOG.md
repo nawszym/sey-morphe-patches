@@ -8,17 +8,17 @@ for every version newer than the installed bundle.
 
 ### ✨ New Features
 
-* **KICK: Live Streaming:** By default all patches are active (disable in SEYTTINGS).
-* **KICK: Live Streaming - CHAT BACKGROUND:** Added a SEYTTINGS toggle that paints the chat panel pure black (`#000000`) for AMOLED screens. On by default. Requires the SEYTTINGS patch.
-* **KICK: Live Streaming - DEFAULT SPLIT VIEW:** Added a SEYTTINGS toggle that opens streams in the video/chat split view by default instead of the small overlay chat. A chat mode you pick yourself in the app still wins. On by default. Requires the SEYTTINGS patch.
-* **KICK: Live Streaming - EMOTES:** Added an **Emote size** option with two choices — Native or Twitch-like. Twitch-like makes both 7TV/BTTV/FFZ and KICK's own image emotes bigger, closer to the Twitch TV look. Twitch-like is the default. Requires the SEYTTINGS patch.
-* **KICK: Live Streaming - CHAT TEXT SIZE:** Simplified to two options — Native (stock KICK text and spacing) and Twitch-like (larger text with a wider gap between messages), matched to Twitch TV. Twitch-like is the default. Requires the SEYTTINGS patch.
-* **KICK: Live Streaming - CHAT SIZE:** Simplified to three options — Native (stock), Twitch-like (the chat panel takes about 25% of the screen, as on Twitch TV) and Big (the old largest size). Twitch-like is the default and chat resizing is on. Requires the SEYTTINGS patch.
-* **KICK: Live Streaming - HIDE PINNED:** The pinned message card is now hidden by default; turn the toggle off in SEYTTINGS to show it again.
+* **KICK: Live Streaming:** All patches are enabled by default. Disable them individually in SEYTTINGS.
+* **KICK: Live Streaming - CHAT BACKGROUND:** New SEYTTINGS toggle for a pure black chat panel on AMOLED screens. On by default. Requires the SEYTTINGS patch.
+* **KICK: Live Streaming - DEFAULT SPLIT VIEW:** New SEYTTINGS toggle to open streams in video/chat split view. A chat mode you pick yourself in the app still wins. On by default. Requires the SEYTTINGS patch.
+* **KICK: Live Streaming - EMOTES:** New Emote size option: Native or Twitch-like, for both third-party and KICK image emotes. Twitch-like by default. Requires the SEYTTINGS patch.
+* **KICK: Live Streaming - CHAT TEXT SIZE:** Two options, Native or Twitch-like (larger text and message spacing). Twitch-like by default. Requires the SEYTTINGS patch.
+* **KICK: Live Streaming - CHAT SIZE:** Three options, Native, Twitch-like (about 25% of the screen) or Big. Twitch-like by default, chat resizing on. Requires the SEYTTINGS patch.
+* **KICK: Live Streaming - HIDE PINNED:** The pinned message card is hidden by default. Disable the toggle in SEYTTINGS to show it again.
 
 ### 🐛 Bug Fixes
 
-* **KICK: Live Streaming - SEYTTINGS:** The tweaks menu now opens with the **OK** button instead of as soon as the row gains focus.
+* **KICK: Live Streaming - SEYTTINGS:** The tweaks menu now opens with the OK button instead of as soon as the row gains focus.
 
 ## 1.2.6 (2026-11-15)
 
