@@ -248,7 +248,7 @@ index 0 of `<init>`; `inject` at index 0 of the page callbacks.
 | Emote sizes (1.2.7) | `Lvz3.a`: unique `20.0f` / `12.0f` (third-party) and `const/16 0x14` / `0xc` (KICK native, `z3` branch); `Lj40.i`: own `20.0f` for CDN width |
 | Chat panel background (1.2.7) | `La79.d`: two `sget-wide ..., Lng4;->f:J` reads (split + overlay branch); overlay anchored by `sget-object ..., La57;->H:Lnh3;` |
 | Default chat mode (1.2.7) | `Lwc9`: `fieldAccess("Lhw0;", "B", "Lhw0;")` in `<init>(Lbo1;Lvu7;Lyu7;)V` and `a(Log1;)Ljava/lang/Object;`; `hw0.B` = OVERLAY_HALF (default), `hw0.D` = SIDE_PANEL |
-| TextStyle | `Lvi4;` → `<clinit>` writing field `m`; sizes via `Ldh7;` → `m(I)J` |
+| TextStyle | `Lvi4;` → `<clinit>` writing field `m`; sizes via `Ldh7;` → `m(I)J`; font weight is `Ly23;->G:Ly23;` (600) in the `Lfv8;-><init>` call right before the `m` write, redirected to `y23.E` (400) for Twitch-like |
 | Mature dialog | `Lsz6;` → `i(...)` |
 | Splash start route | `Ldn0;` → `invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;` filtered by `const-string "home"` + `Lxs5;->b(String, Function1)` (last frame of the "VideoSplashScreen" effect) |
 

@@ -29,7 +29,7 @@ public final class ChatTextPrefs {
 
     /**
      * Twitch-like gap between messages. The stock 2 dp gap is far too tight;
-     * 20 dp was visibly too airy on the TV, so 14 dp is the tuned middle ground.
+     * 10 dp is the tuned value that reads like Twitch TV chat on a TV screen.
      */
     private static final float TWITCH_MESSAGE_SPACING_DP = 10.0f;
 
@@ -135,6 +135,25 @@ public final class ChatTextPrefs {
      */
     public static float messageSpacingDp() {
         return getSizeSp() == SIZE_TWITCH ? TWITCH_MESSAGE_SPACING_DP : STOCK_MESSAGE_SPACING_DP;
+    }
+
+    /**
+     * Replacement for the font-weight instance fed into the chat message
+     * TextStyle ({@code vi4.m}). KICK uses {@code y23.G} = 600 (semi-bold) for
+     * the whole message. Twitch chat uses a light 400 body with bold usernames,
+     * so Twitch-like selects {@code y23.E} = 400 here; usernames are styled
+     * separately in the app and keep their own bold weight. Native keeps the
+     * original instance untouched.
+     */
+    public static Object messageFontWeight(Object stock) {
+        if (!isEnabled()) {
+            return stock;
+        }
+        try {
+            return Class.forName("y23").getField("E").get(null);
+        } catch (Throwable ignored) {
+            return stock;
+        }
     }
 
     /** Packs a value into a Compose sp TextUnit. */

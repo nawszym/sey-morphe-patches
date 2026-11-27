@@ -24,7 +24,7 @@ for the feature patches of both apps.
 | **SEYTTINGS** | base | Turns the licensing row in the KICK settings screen into a red **SEYTTINGS** row that opens a native patched-tweaks dialog. Required by every KICK feature. |
 | **EMOTES** | feature | Shows 7TV, BTTV and FFZ emotes in the KICK chat. One toggle enables all providers, plus a Native/Twitch-like emote size option (also affects KICK's built-in emotes). |
 | **CHAT SIZE** | feature | Three options for the VIDEO/CHAT view: Native (stock), Twitch-like (measured Twitch TV ratio) and Big. The video and chat panel always meet at the same edge. |
-| **CHAT TEXT SIZE** | feature | Two options: Native (stock KICK text and spacing) or Twitch-like (larger 16 sp text and a wider 20 dp gap between messages). Toggle in SEYTTINGS. |
+| **CHAT TEXT SIZE** | feature | Two options: Native (stock KICK text and spacing) or Twitch-like (larger 16 sp text, a wider 10 dp gap, lighter messages and bolder usernames). Toggle in SEYTTINGS. |
 | **EXPAND CHAT** | feature | Hides the **Join the Chat** footer in the VIDEO/CHAT view and lets the chat fill the freed space. Toggle in SEYTTINGS. |
 | **HIDE PINNED** | feature | Removes the pinned message card (and the ad banner attached to it) from the top of the chat. Toggle in SEYTTINGS. |
 | **SKIP 18+ WARNING** | feature | Auto-accepts the 18+ mature content warning, so a mature stream starts without the extra click. Toggle in SEYTTINGS. |
