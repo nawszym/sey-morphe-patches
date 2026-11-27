@@ -78,6 +78,26 @@ private object ChatMessageListFingerprint : Fingerprint(
 )
 
 /**
+ * `hp1.L(String, Lhn, Map, Lfv8, Lp73, int)` renders the chat username with
+ * the very same `vi4.m` style that CHAT TEXT SIZE lightens. Redirecting its
+ * style parameter to a bold copy keeps usernames bold while the message body
+ * stays light in the Twitch-like preset.
+ */
+private object ChatUsernameFingerprint : Fingerprint(
+    definingClass = "Lhp1;",
+    name = "L",
+    parameters = listOf(
+        "Ljava/lang/String;",
+        "Lhn;",
+        "Ljava/util/Map;",
+        "Lfv8;",
+        "Lp73;",
+        "I",
+    ),
+    returnType = "V",
+)
+
+/**
  * `KickApplication.onCreate()` runs before Compose builds any TextStyle, so
  * the extension can capture the context and read the saved preference in time.
  */
@@ -153,6 +173,19 @@ val chatTextPatch = patch(
                     invoke-static {v$weightRegister}, ${EXTENSION_CLASS}ChatTextPrefs;->messageFontWeight(Ljava/lang/Object;)Ljava/lang/Object;
                     move-result-object v$weightRegister
                     check-cast v$weightRegister, Ly23;
+                """,
+            )
+        }
+
+        // Usernames share vi4.m with the message body, so give them a bold
+        // copy of the style while the body stays light.
+        ChatUsernameFingerprint.apply {
+            method.addInstructions(
+                0,
+                """
+                    invoke-static/range {p3 .. p3}, ${EXTENSION_CLASS}ChatTextPrefs;->usernameStyle(Ljava/lang/Object;)Ljava/lang/Object;
+                    move-result-object p3
+                    check-cast p3, Lfv8;
                 """,
             )
         }

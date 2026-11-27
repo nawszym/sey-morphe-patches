@@ -3,6 +3,8 @@ package app.morphe.extension.kicktv.chattext;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.lang.reflect.Method;
+
 import app.morphe.extension.kicktv.base.MorpheContext;
 
 /**
@@ -151,6 +153,33 @@ public final class ChatTextPrefs {
         }
         try {
             return Class.forName("y23").getField("E").get(null);
+        } catch (Throwable ignored) {
+            return stock;
+        }
+    }
+
+    /**
+     * Bold copy of the chat style for the username Text composable. KICK hands
+     * the same {@code vi4.m} style to the username and the message; the patch
+     * makes that style light (400) for Twitch-like, so this restores a 600
+     * weight for the username only, keeping every other field unchanged.
+     */
+    public static Object usernameStyle(Object stock) {
+        if (!isEnabled() || stock == null) {
+            return stock;
+        }
+        try {
+            Class<?> styleClass = Class.forName("fv8");
+            Object bold = Class.forName("y23").getField("G").get(null);
+            Method copy = styleClass.getDeclaredMethod(
+                    "a", styleClass, long.class, Class.forName("y23"),
+                    Class.forName("y13"), long.class, long.class,
+                    Class.forName("fh6"), Class.forName("vv4"),
+                    int.class, int.class);
+            // Every bit means "keep the original value" except the font-weight
+            // bit (4), so only the weight is overridden.
+            return copy.invoke(null, stock, 0L, bold, null, 0L, 0L,
+                    null, null, 0, ~0x4);
         } catch (Throwable ignored) {
             return stock;
         }
